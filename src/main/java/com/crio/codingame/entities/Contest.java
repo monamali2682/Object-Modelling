@@ -31,10 +31,11 @@ public class Contest extends BaseEntity{
     //  1. There can be few unused imports, you will need to fix them to make the build pass.
     //  2. You can use "./gradlew build" to check if your code builds successfully.
 
-    private void validateQuestionList(List<Question> qList, Level contestLevel) throws InvalidContestException {
+    private void validateQuestionList(List<Question> questions, Level contestLevel) throws InvalidContestException {
         for(Question q:questions){
             if(q.getLevel()!=this.getLevel()){
-                throw new RuntimeException("Question level should be same as that of contest level");
+                throw new InvalidContestException("Question level should be same as that of contest level");
+                //throw new ("Question level should be same as that of contest level");
             }                   
         }
     }
