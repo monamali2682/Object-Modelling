@@ -19,28 +19,52 @@ public class Contest extends BaseEntity{
             ContestStatus contestStatus) {
         this.name = name;
         this.questions = new ArrayList<>();
-        validateQuestionList(questions, level);
         this.level = level;
+        validateQuestionList(questions, level);
         this.creator = creator;
         this.contestStatus = contestStatus;
     }
-    // TODO: CRIO_TASK_MODULE_ENTITIES
+    // : CRIO_TASK_MODULE_ENTITIES
     // Complete the validateQuestionList method to verify if all the questions have the same level and are equal to contest level.
     // Throw InValidContestException if the above condition is not true. This will stop the Object Creation.
     //  Note:
     //  1. There can be few unused imports, you will need to fix them to make the build pass.
     //  2. You can use "./gradlew build" to check if your code builds successfully.
 
+    public Contest(String id, String name, List<Question> questions2, Level level,
+            User creator, ContestStatus contestStatus) {
+                this.id=id;
+                this.name = name;
+                this.questions = new ArrayList<>();
+                validateQuestionList(questions, level);
+                this.level = level;
+                this.creator = creator;
+                this.contestStatus = contestStatus; 
+        }
+
+    public Contest(Contest contest) {
+        this(contest.id, contest.name, contest.questions, contest.level, contest.creator, contest.contestStatus);
+    }
+
     private void validateQuestionList(List<Question> questions, Level contestLevel) throws InvalidContestException {
         for(Question q:questions){
             if(q.getLevel()!=this.getLevel()){
                 throw new InvalidContestException("Question level should be same as that of contest level");
-                //throw new ("Question level should be same as that of contest level");
             }                   
         }
     }
 
 
+
+    
+
+
+    // : CRIO_TASK_MODULE_SERVICES
+    // Change the Contest Status to ENDED
+
+    public void endContest(){
+        this.contestStatus=ContestStatus.ENDED;
+    }
     
     public String getName() {
         return name;
