@@ -53,11 +53,7 @@ public class AttendContestCommandTest {
         doThrow(new ContestNotFoundException(expectedOutput)).when(userServiceMock).attendContest(contestId,"Joey");
 
         //Act
-        try {
-            attendContestCommand.execute(List.of("ATTEND-CONTEST",contestId,"Joey")); 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        attendContestCommand.execute(List.of("ATTEND-CONTEST",contestId,"Joey"));
          
     
         
@@ -77,12 +73,8 @@ public class AttendContestCommandTest {
         doThrow(new UserNotFoundException(expectedOutput)).when(userServiceMock).attendContest(contestId,userName);
 
         //Act
-        try {
-            attendContestCommand.execute(List.of("ATTEND-CONTEST",contestId,userName));
-        } catch (Exception e) {
-            
-            System.out.println(e.getMessage());
-        }
+        attendContestCommand.execute(List.of("ATTEND-CONTEST",contestId,userName));
+       
         
 
         //Assert
@@ -100,12 +92,8 @@ public class AttendContestCommandTest {
         doThrow(new InvalidOperationException(expectedOutput)).when(userServiceMock).attendContest(contestId,"Joey");
 
         //Act
-        try {
-            attendContestCommand.execute(List.of("ATTEND-CONTEST",contestId,"Joey"));
-        } catch (Exception e) {
-            
-            System.out.println(e.getMessage());
-        }
+        attendContestCommand.execute(List.of("ATTEND-CONTEST",contestId,"Joey"));
+    
         
 
         Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString().trim());
@@ -122,11 +110,8 @@ public class AttendContestCommandTest {
         doThrow(new InvalidOperationException(expectedOutput)).when(userServiceMock).attendContest(contestId,"Joey");
 
         //Act
-        try {
-            attendContestCommand.execute(List.of("ATTEND-CONTEST",contestId,"Joey"));  
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        attendContestCommand.execute(List.of("ATTEND-CONTEST",contestId,"Joey"));  
+        
         
 
         //Assert
@@ -144,11 +129,8 @@ public class AttendContestCommandTest {
         doThrow(new InvalidOperationException(expectedOutput)).when(userServiceMock).attendContest(contestId,"Joey");
 
         //Act
-        try {
-            attendContestCommand.execute(List.of("ATTEND-CONTEST",contestId,"Joey"));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        attendContestCommand.execute(List.of("ATTEND-CONTEST",contestId,"Joey"));
+       
         
 
         //Assert

@@ -29,14 +29,20 @@ public class CreateContestCommand implements ICommand{
         String level = tokens.get(2);
         String creator = tokens.get(3);
         Contest contest;
-        if(tokens.size()>4){
-            int score = Integer.parseInt(tokens.get(4));
-            contest = contestService.create(title, Level.valueOf(level),creator, score);
+        try {
+            if(tokens.size()>4){
+                int score = Integer.parseInt(tokens.get(4));
+                contest = contestService.create(title, Level.valueOf(level),creator, score);
+            }
+            else{
+                contest = contestService.create(title, Level.valueOf(level),creator,null);
+            }
+            System.out.println(contest);
+        } catch (Exception e) {
+            //TODO: handle exception
+            System.out.println(e.getMessage());
         }
-        else{
-            contest = contestService.create(title, Level.valueOf(level),creator,null);
-        }
-        System.out.println(contest);
+        
     }
     
 }

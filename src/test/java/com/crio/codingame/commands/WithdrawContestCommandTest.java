@@ -76,12 +76,8 @@ public class WithdrawContestCommandTest {
         doThrow(new UserNotFoundException(expectedOutput)).when(userServiceMock).withdrawContest(contestId,userName);
 
         //Act
-        try {
-            withdrawContestCommand.execute(List.of("WITHDRAW-CONTEST",contestId,userName)); 
-        } catch (Exception e) {
-            //TODO: handle exception
-            System.out.println(e.getMessage());
-        }
+        withdrawContestCommand.execute(List.of("WITHDRAW-CONTEST",contestId,userName)); 
+       
         
 
         //Assert
@@ -99,12 +95,9 @@ public class WithdrawContestCommandTest {
         doThrow(new InvalidOperationException(expectedOutput)).when(userServiceMock).withdrawContest(contestId,"Joey");
 
         //Act
-        try {
-            withdrawContestCommand.execute(List.of("WITHDRAW-CONTEST",contestId,"Joey"));
-        } catch (Exception e) {
-            //TODO: handle exception
-            System.out.println(e.getMessage());
-        }
+        
+        withdrawContestCommand.execute(List.of("WITHDRAW-CONTEST",contestId,"Joey"));
+        
         
 
         //Assert
@@ -122,12 +115,9 @@ public class WithdrawContestCommandTest {
         doThrow(new InvalidOperationException(expectedOutput)).when(userServiceMock).withdrawContest(contestId,"Joey");
 
         //Act
-        try {
-            withdrawContestCommand.execute(List.of("WITHDRAW-CONTEST",contestId,"Joey"));
-        } catch (Exception e) {
-            //TODO: handle exception
-            System.out.println(e.getMessage());
-        }
+        
+        withdrawContestCommand.execute(List.of("WITHDRAW-CONTEST",contestId,"Joey"));
+       
         
 
         //Assert
@@ -145,12 +135,8 @@ public class WithdrawContestCommandTest {
         doThrow(new InvalidOperationException(expectedOutput)).when(userServiceMock).withdrawContest(contestId,"Joey");
 
         //Act
-        try {
-            withdrawContestCommand.execute(List.of("WITHDRAW-CONTEST",contestId,"Joey"));
-        } catch (Exception e) {
-            //TODO: handle exception
-            System.out.println(e.getMessage());
-        }
+        
+        withdrawContestCommand.execute(List.of("WITHDRAW-CONTEST",contestId,"Joey"));
         
 
         //Assert
@@ -169,12 +155,9 @@ public class WithdrawContestCommandTest {
         doThrow(new InvalidOperationException(expectedOutput)).when(userServiceMock).withdrawContest(contestId,userName);
 
         //Act
-        try {
-            withdrawContestCommand.execute(List.of("WITHDRAW-CONTEST",contestId,userName));
-        } catch (Exception e) {
-            //TODO: handle exception
-            System.out.println(e.getMessage());
-        }
+        
+        withdrawContestCommand.execute(List.of("WITHDRAW-CONTEST",contestId,userName));
+        
         
 
         //Assert

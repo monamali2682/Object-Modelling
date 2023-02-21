@@ -106,12 +106,9 @@ public class CreateContestCommandTest {
         doThrow(new UserNotFoundException(expectedOutput)).when(contestServiceMock).create(anyString(),any(Level.class),anyString(),isNull());
 
         //Act
-        try {
-            createContestCommand.execute(List.of("CREATE-CONTEST","name","LOW","creator"));
-        } catch (Exception e) {
-            //TODO: handle exception
-            System.out.println(e.getMessage());
-        }
+        
+        createContestCommand.execute(List.of("CREATE-CONTEST","name","LOW","creator"));
+       
         
 
         //Assert
@@ -128,12 +125,9 @@ public class CreateContestCommandTest {
         doThrow(new QuestionNotFoundException(expectedOutput)).when(contestServiceMock).create(anyString(),any(Level.class),anyString(),isNull());
 
         //Act
-        try {
-            createContestCommand.execute(List.of("CREATE-CONTEST","name","LOW","creator"));  
-        } catch (Exception e) {
-            //TODO: handle exception
-            System.out.println(e.getMessage());
-        }
+     
+        createContestCommand.execute(List.of("CREATE-CONTEST","name","LOW","creator"));  
+       
         
 
         //Assert

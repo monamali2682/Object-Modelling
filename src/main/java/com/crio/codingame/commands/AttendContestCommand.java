@@ -24,8 +24,15 @@ public class AttendContestCommand implements ICommand{
     public void execute(List<String> tokens) {
         String contestId = tokens.get(1);
         String userName = tokens.get(2);
-        UserRegistrationDto dto = userService.attendContest(contestId, userName);
-        System.out.println(dto);
+
+        try {
+            UserRegistrationDto dto = userService.attendContest(contestId, userName);
+            System.out.println(dto);
+        } catch (Exception e) {
+            //TODO: handle exception
+            System.out.println(e.getMessage());
+        }
+        
     }
 
     

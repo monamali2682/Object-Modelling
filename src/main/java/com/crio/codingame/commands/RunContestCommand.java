@@ -19,8 +19,8 @@ public class RunContestCommand implements ICommand {
         String contestId = tokens.get(1);
         String contestCreator = tokens.get(2);
         try{
-        ContestSummaryDto contestSummaryDto = contestService.runContest(contestId, contestCreator);
-        System.out.println(contestSummaryDto.getUsers().stream().map(u -> "[UserName:" + u.getName() + " [Questions: " + u.getQuestionsByContest(contestSummaryDto.getContest()) + "]" + "]" ).collect(Collectors.joining(", ")));
+            ContestSummaryDto contestSummaryDto = contestService.runContest(contestId, contestCreator);
+            System.out.println(contestSummaryDto.getUsers().stream().map(u -> "[UserName:" + u.getName() + " [Questions: " + u.getQuestionsByContest(contestSummaryDto.getContest()) + "]" + "]" ).collect(Collectors.joining(", ")));
         }catch(RuntimeException e){
             System.out.println(e.getMessage());
         }
