@@ -1,7 +1,7 @@
 
 package com.crio.codingame.entities;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,11 +14,14 @@ public class Contest extends BaseEntity{
     private final User creator;
     private ContestStatus contestStatus;
 
+    public Contest(Contest contest){
+        this(contest.id,contest.name,contest.questions,contest.level,contest.creator,contest.contestStatus);
+    }
 
     public Contest(String name, List<Question> questions, Level level, User creator,
             ContestStatus contestStatus) {
         this.name = name;
-        this.questions = new ArrayList<>();
+        this.questions = questions;
         this.level = level;
         validateQuestionList(questions, level);
         this.creator = creator;
@@ -31,20 +34,17 @@ public class Contest extends BaseEntity{
     //  1. There can be few unused imports, you will need to fix them to make the build pass.
     //  2. You can use "./gradlew build" to check if your code builds successfully.
 
-    public Contest(String id, String name, List<Question> questions2, Level level,
+    public Contest(String id, String name, List<Question> questions, Level level,
             User creator, ContestStatus contestStatus) {
                 this.id=id;
                 this.name = name;
-                this.questions = new ArrayList<>();
-                validateQuestionList(questions, level);
+                this.questions = questions;
                 this.level = level;
+                validateQuestionList(questions, level);
                 this.creator = creator;
                 this.contestStatus = contestStatus; 
         }
 
-    public Contest(Contest contest) {
-        this(contest.id, contest.name, contest.questions, contest.level, contest.creator, contest.contestStatus);
-    }
 
     private void validateQuestionList(List<Question> questions, Level contestLevel) throws InvalidContestException {
         for(Question q:questions){
