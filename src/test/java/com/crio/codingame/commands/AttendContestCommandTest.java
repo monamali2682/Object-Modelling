@@ -56,7 +56,7 @@ public class AttendContestCommandTest {
         try {
             attendContestCommand.execute(List.of("ATTEND-CONTEST",contestId,"Joey")); 
         } catch (Exception e) {
-            //TODO: handle exception
+            
             System.out.println(e.getMessage());
         }
          
@@ -81,7 +81,7 @@ public class AttendContestCommandTest {
         try {
             attendContestCommand.execute(List.of("ATTEND-CONTEST",contestId,userName));
         } catch (Exception e) {
-            //TODO: handle exception
+            
             System.out.println(e.getMessage());
         }
         
@@ -104,12 +104,11 @@ public class AttendContestCommandTest {
         try {
             attendContestCommand.execute(List.of("ATTEND-CONTEST",contestId,"Joey"));
         } catch (Exception e) {
-            //TODO: handle exception
+            
             System.out.println(e.getMessage());
         }
         
 
-        //Assert
         Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString().trim());
 
         verify(userServiceMock,times(1)).attendContest(contestId,"Joey");
@@ -127,7 +126,6 @@ public class AttendContestCommandTest {
         try {
             attendContestCommand.execute(List.of("ATTEND-CONTEST",contestId,"Joey"));  
         } catch (Exception e) {
-            //TODO: handle exception
             System.out.println(e.getMessage());
         }
         
@@ -150,7 +148,6 @@ public class AttendContestCommandTest {
         try {
             attendContestCommand.execute(List.of("ATTEND-CONTEST",contestId,"Joey"));
         } catch (Exception e) {
-            //TODO: handle exception
             System.out.println(e.getMessage());
         }
         
