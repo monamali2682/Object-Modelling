@@ -56,7 +56,6 @@ public class AttendContestCommandTest {
         try {
             attendContestCommand.execute(List.of("ATTEND-CONTEST",contestId,"Joey")); 
         } catch (Exception e) {
-            
             System.out.println(e.getMessage());
         }
          
